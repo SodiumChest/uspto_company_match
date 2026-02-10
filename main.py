@@ -55,7 +55,7 @@ def main(command, args):
                 manual_check.manual_check_main(
                     args[0], args[2],"ee_name",
                 )
-            elif args[1]=="ASSIGNER":
+            elif args[1]=="ASSIGNOR":
                 manual_check.manual_check_main(
                     args[0], args[2],"or_name",
                 )
@@ -98,4 +98,5 @@ if __name__ == "__main__":
         else:
             main(sys.argv[1], sys.argv[2:])
     except Exception as e:
+
         print(e)
