@@ -34,7 +34,7 @@ def manual_check_main(file_path:str,
 
     type_3 = company_df['match_type'] == '3'
     if type_3.any():
-        company_df.loc[type_0, 'matched_id'] = "-1"
+        company_df.loc[type_3, 'matched_id'] = "-1"
         company_df.loc[type_3, 'similarity'] = 0.0
 
     save(company_df,match_df,file_path)

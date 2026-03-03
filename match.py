@@ -140,9 +140,7 @@ def match_file(file_path:str,
         first = False
         print(f"已处理批次 {i + 1}, 累计行数: {total_rows:,}, 累计输出行数: {filtered_rows:,}")
 
-def match_main(file_path,type,map_path,output_path,tmp_path=None,algorithm=fuzz.token_sort_ratio):
-    if tmp_path is None:
-        tmp_path = Path(__file__).parent / "temp" / "tmp_map.bin"
+def match_main(file_path,type,map_path,output_path,algorithm=fuzz.token_sort_ratio):
 
     if type=="OWNER":
         match_file(
@@ -173,3 +171,12 @@ def match_main(file_path,type,map_path,output_path,tmp_path=None,algorithm=fuzz.
         )
     else:
         raise ValueError("unknown type: " + type)
+
+# if __name__ == "__main__":
+#     match_main(
+#         r"C:\Users\ASUS\Desktop\QuickAccess\量潮\tma_tmc\cleaned_tmc_owner.csv",
+#         "OWNER",
+#         r"E:\Projects\Python\huangjian\map.dta",
+#         r"C:\Users\ASUS\Desktop\QuickAccess\量潮\tma_tmc\matched_tmc_owner.csv",
+#         r"E:\Projects\Python\huangjian\tmp_map.bin"
+#     )

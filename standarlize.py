@@ -1,6 +1,12 @@
 from collections.abc import Iterable, Callable
 import pandas as pd
 
+import os
+from pathlib import Path
+
+output_path = Path(__file__).parent / "output"
+os.chdir(output_path)
+
 CHUNK_SIZE = 100000
 
 state_csv=pd.read_csv('state.csv',dtype=str).fillna('')
@@ -724,3 +730,11 @@ def standarlize_main(type,file_path:str,output_path:str) -> None:
         )
     else:
         raise ValueError("unknown type: "+type)
+
+# if __name__ == "__main__":
+#
+#     standarlize_main(
+#         "ASSIGNOR",
+#         r"C:\Users\ASUS\Desktop\QuickAccess\量潮\liangchao_firmname_matching_202601\tma_tmc\tma_assignor.csv",
+#         r"C:\Users\ASUS\Desktop\QuickAccess\量潮\tma_tmc\cleaned_tma_assignor.csv",
+#     )
